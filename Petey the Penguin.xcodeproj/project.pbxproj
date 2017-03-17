@@ -16,6 +16,8 @@
 		745FB6291E7C4C6E0032B24A /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745FB6281E7C4C6E0032B24A /* Coin.swift */; };
 		745FB6301E7C4E4A0032B24A /* EncounterA.sks in Resources */ = {isa = PBXBuildFile; fileRef = 745FB62F1E7C4E4A0032B24A /* EncounterA.sks */; };
 		745FB6321E7C4FAD0032B24A /* EncounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745FB6311E7C4FAD0032B24A /* EncounterManager.swift */; };
+		745FB6341E7C50700032B24A /* EncounterB.sks in Resources */ = {isa = PBXBuildFile; fileRef = 745FB6331E7C50700032B24A /* EncounterB.sks */; };
+		745FB6361E7C510E0032B24A /* EncounterC.sks in Resources */ = {isa = PBXBuildFile; fileRef = 745FB6351E7C510E0032B24A /* EncounterC.sks */; };
 		74F8576C1E7B1AE5004BFFC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8576B1E7B1AE5004BFFC7 /* AppDelegate.swift */; };
 		74F8576E1E7B1AE5004BFFC7 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74F8576D1E7B1AE5004BFFC7 /* GameScene.sks */; };
 		74F857701E7B1AE5004BFFC7 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74F8576F1E7B1AE5004BFFC7 /* Actions.sks */; };
@@ -38,6 +40,8 @@
 		745FB6281E7C4C6E0032B24A /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		745FB62F1E7C4E4A0032B24A /* EncounterA.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterA.sks; sourceTree = "<group>"; };
 		745FB6311E7C4FAD0032B24A /* EncounterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterManager.swift; sourceTree = "<group>"; };
+		745FB6331E7C50700032B24A /* EncounterB.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterB.sks; sourceTree = "<group>"; };
+		745FB6351E7C510E0032B24A /* EncounterC.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterC.sks; sourceTree = "<group>"; };
 		74F857681E7B1AE5004BFFC7 /* Petey the Penguin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Petey the Penguin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F8576B1E7B1AE5004BFFC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F8576D1E7B1AE5004BFFC7 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				745FB62F1E7C4E4A0032B24A /* EncounterA.sks */,
+				745FB6331E7C50700032B24A /* EncounterB.sks */,
+				745FB6351E7C510E0032B24A /* EncounterC.sks */,
 			);
 			name = Encounters;
 			sourceTree = "<group>";
@@ -174,8 +180,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				745FB6341E7C50700032B24A /* EncounterB.sks in Resources */,
 				74F857771E7B1AE5004BFFC7 /* Main.storyboard in Resources */,
 				74F8576E1E7B1AE5004BFFC7 /* GameScene.sks in Resources */,
+				745FB6361E7C510E0032B24A /* EncounterC.sks in Resources */,
 				74F857791E7B1AE5004BFFC7 /* Assets.xcassets in Resources */,
 				745FB6301E7C4E4A0032B24A /* EncounterA.sks in Resources */,
 				74F8577C1E7B1AE5004BFFC7 /* LaunchScreen.storyboard in Resources */,
