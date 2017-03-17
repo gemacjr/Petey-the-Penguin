@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 import CoreMotion
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     let cam = SKCameraNode()
     let ground = Ground()
     let player = Player()
@@ -53,6 +53,8 @@ class GameScene: SKScene {
         // Place the star out of the way for now
         self.addChild(powerUpStar)
         powerUpStar.position = CGPoint(x: -2000, y: -2000)
+        
+        self.physicsWorld.contactDelegate = self
     }
     
     override func didSimulatePhysics() {
@@ -109,6 +111,41 @@ class GameScene: SKScene {
         }
     }
     
+    func didBegin(_ contact: SKPhysicsContact) {
+        // Each contact has two bodies; we do not know which is which.
+        // We will find the penguin body, then use
+        // the other body to determine the type of contact.
+        let otherBody:SKPhysicsBody
+        // Combine the two penguin physics categories into one
+        // bitmask using the bitwise OR operator |
+        let penguinMask = PhysicsCategory.penguin.rawValue |
+            PhysicsCategory.damagedPenguin.rawValue
+        // Use the bitwise AND operator & to find the penguin.
+        // This returns a positive number if body A's category
+        // is the same as either the penguin or damagedPenguin:
+        if (contact.bodyA.categoryBitMask & penguinMask) > 0 {
+            // bodyA is the penguin, we will test bodyB:
+            otherBody = contact.bodyB
+        }
+        else {
+            // bodyB is the penguin, we will test bodyA:
+            otherBody = contact.bodyA
+        }
+        // Find the type of contact:
+        switch otherBody.categoryBitMask {
+        case PhysicsCategory.ground.rawValue:
+            print("hit the ground")
+        case PhysicsCategory.enemy.rawValue:
+            print("take damage")
+        case PhysicsCategory.coin.rawValue:
+            print("collect a coin")
+        case PhysicsCategory.powerup.rawValue:
+            print("start the power-up")
+        default:
+            print("Contact with no game logic")
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in (touches) {
             // Find the location of the touch:
@@ -137,4 +174,13 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         player.update()
     }
+}
+
+enum PhysicsCategory:UInt32 {
+    case penguin = 1
+    case damagedPenguin = 2
+    case ground = 4
+    case enemy = 8
+    case coin = 16
+    case powerup = 32
 }
