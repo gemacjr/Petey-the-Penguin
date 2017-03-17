@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74533F151E7B85F400BF1021 /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74533F141E7B85F400BF1021 /* Ground.swift */; };
+		74533F171E7B872200BF1021 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74533F161E7B872200BF1021 /* Player.swift */; };
 		74F8576C1E7B1AE5004BFFC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8576B1E7B1AE5004BFFC7 /* AppDelegate.swift */; };
 		74F8576E1E7B1AE5004BFFC7 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74F8576D1E7B1AE5004BFFC7 /* GameScene.sks */; };
 		74F857701E7B1AE5004BFFC7 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74F8576F1E7B1AE5004BFFC7 /* Actions.sks */; };
@@ -15,9 +17,13 @@
 		74F857771E7B1AE5004BFFC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F857751E7B1AE5004BFFC7 /* Main.storyboard */; };
 		74F857791E7B1AE5004BFFC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74F857781E7B1AE5004BFFC7 /* Assets.xcassets */; };
 		74F8577C1E7B1AE5004BFFC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F8577A1E7B1AE5004BFFC7 /* LaunchScreen.storyboard */; };
+		74F857841E7B2807004BFFC7 /* GameSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F857831E7B2807004BFFC7 /* GameSprite.swift */; };
+		74F857861E7B2836004BFFC7 /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F857851E7B2836004BFFC7 /* Bee.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74533F141E7B85F400BF1021 /* Ground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
+		74533F161E7B872200BF1021 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		74F857681E7B1AE5004BFFC7 /* Petey the Penguin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Petey the Penguin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F8576B1E7B1AE5004BFFC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F8576D1E7B1AE5004BFFC7 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -28,6 +34,8 @@
 		74F857781E7B1AE5004BFFC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74F8577B1E7B1AE5004BFFC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74F8577D1E7B1AE5004BFFC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74F857831E7B2807004BFFC7 /* GameSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSprite.swift; sourceTree = "<group>"; };
+		74F857851E7B2836004BFFC7 /* Bee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,10 @@
 				74F857781E7B1AE5004BFFC7 /* Assets.xcassets */,
 				74F8577A1E7B1AE5004BFFC7 /* LaunchScreen.storyboard */,
 				74F8577D1E7B1AE5004BFFC7 /* Info.plist */,
+				74F857831E7B2807004BFFC7 /* GameSprite.swift */,
+				74F857851E7B2836004BFFC7 /* Bee.swift */,
+				74533F141E7B85F400BF1021 /* Ground.swift */,
+				74533F161E7B872200BF1021 /* Player.swift */,
 			);
 			path = "Petey the Penguin";
 			sourceTree = "<group>";
@@ -148,7 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74533F151E7B85F400BF1021 /* Ground.swift in Sources */,
+				74F857861E7B2836004BFFC7 /* Bee.swift in Sources */,
+				74F857841E7B2807004BFFC7 /* GameSprite.swift in Sources */,
 				74F857721E7B1AE5004BFFC7 /* GameScene.swift in Sources */,
+				74533F171E7B872200BF1021 /* Player.swift in Sources */,
 				74F857741E7B1AE5004BFFC7 /* GameViewController.swift in Sources */,
 				74F8576C1E7B1AE5004BFFC7 /* AppDelegate.swift in Sources */,
 			);
@@ -314,6 +330,7 @@
 				74F857821E7B1AE5004BFFC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
