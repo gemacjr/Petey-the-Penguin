@@ -8,11 +8,14 @@
 
 import SpriteKit
 import GameplayKit
+import CoreMotion
 
 class GameScene: SKScene {
     let cam = SKCameraNode()
     let ground = Ground()
     let player = Player()
+    let motionManager = CMMotionManager()
+    
     
     override func didMove(to view: SKView) {
         self.anchorPoint = .zero
@@ -31,7 +34,7 @@ class GameScene: SKScene {
         self.addChild(bee3)
         
         // Add the ground to the scene:
-        ground.position = CGPoint(x: -self.size.width * 2, y: 150)
+        ground.position = CGPoint(x: -self.size.width * 2, y: 30)
         ground.size = CGSize(width: self.size.width * 6, height: 0)
         ground.createChildren()
         self.addChild(ground)
@@ -40,15 +43,60 @@ class GameScene: SKScene {
         player.position = CGPoint(x: 150, y: 250)
         self.addChild(player)
         
-        bee2.physicsBody?.mass = 0.2
-        bee2.physicsBody?.applyImpulse(CGVector(dx: -25, dy: 0))
+//        bee2.physicsBody?.mass = 0.2
+//        bee2.physicsBody?.applyImpulse(CGVector(dx: -25, dy: 0))
         
-        bee2.physicsBody?.applyImpulse(CGVector(dx: -3, dy: 0)) 
+        bee2.physicsBody?.applyImpulse(CGVector(dx: -3, dy: 0))
+        
+        self.motionManager.startAccelerometerUpdates()
     }
     
     override func didSimulatePhysics() {
         // Keep the camera centered on the player
         self.camera!.position = player.position
+    }
+    
+    override func update(_ currentTime: TimeInterval){
+        
+        // Unwrap the accelerometer data optional:
+        if let accelData = self.motionManager.accelerometerData {
+            var forceAmount:CGFloat
+            var movement = CGVector()
+            
+            // Based on the device orientation, the tilt number
+            // can indicate opposite user desires. The
+            // UIApplication class exposes an enum that allows
+            // us to pull the current orientation.
+            // We will use this opportunity to explore Swift's
+            // switch syntax and assign the correct force for the
+            // current orientation:
+            switch
+            UIApplication.shared.statusBarOrientation {
+            case .landscapeLeft:
+                // The 20,000 number is an amount that felt right
+                // for our example, given Pierre's 30kg mass:
+                forceAmount = 20000
+            case .landscapeRight:
+                forceAmount = -20000
+            default:
+                forceAmount = 0
+            }
+            
+            // If the device is tilted more than 15% towards
+            // vertical, then we want to move the Penguin:
+            if accelData.acceleration.y > 0.15 {
+                movement.dx = forceAmount
+            }
+                // Core Motion values are relative to portrait view.
+                // Since we are in landscape, use y-values for x-axis.
+            else if accelData.acceleration.y < -0.15 {
+                movement.dx = -forceAmount
+            }
+            
+            // Apply the force we created to the player:
+            player.physicsBody?.applyForce(movement)
+        } 
+        player.update()
     }
 }
 

@@ -29,6 +29,18 @@ class Player : SKSpriteNode, GameSprite {
         // we can later reference that
         // key to remove the action.
         self.run(flyAnimation, withKey: "flapAnimation")
+        
+        // Create a physics body based on one frame of Pierre's animation.
+        // We will use the third frame, when his wings are tucked in
+        let bodyTexture = textureAtlas.textureNamed("pierre-flying-3")
+        self.physicsBody = SKPhysicsBody(
+            texture: bodyTexture, size: self.size)
+        // Pierre will lose momentum quickly with a high linearDamping:
+        self.physicsBody?.linearDamping = 0.9
+        // Adult penguins weigh around 30kg:
+        self.physicsBody?.mass = 30
+        // Prevent Pierre from rotating:
+        self.physicsBody?.allowsRotation = false 
     }
     
     func createAnimations() {
@@ -75,5 +87,9 @@ class Player : SKSpriteNode, GameSprite {
     // Satisfy the NSCoder required init:
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func update() {
+        
     }
 }
